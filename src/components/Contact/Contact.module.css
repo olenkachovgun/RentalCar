@@ -1,0 +1,108 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #acabab;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 300px;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    box-shadow: 1px -1px 3px #d5d3d3;
+
+}
+
+
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+}
+
+
+
+.contactBtn {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-width: 90px;
+    border-radius: 8px;
+    border: none;
+    padding: 6px;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #f9f8f8;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    box-shadow: 1px 1px 3px #f7125b;
+    color: #f7125b;
+
+}
+
+button:hover {
+    border-color: #f7125b;
+    background-color: #f7125b;
+    color: aliceblue;
+    transform: scale(1.05);
+    transition: background-color 750ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+    transition: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+/* .like {
+    background-color: #c90606;
+    color: #f9f8f8
+}
+
+.nolike {
+    background-color: #f9f8f8;
+
+} */
+
+.modalDel {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: rgb(208, 248, 250);
+    text-align: center;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.modalBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.modalName {
+    font-weight: 600;
+}
