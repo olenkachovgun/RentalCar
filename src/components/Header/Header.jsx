@@ -6,11 +6,7 @@ const Header = () => {
   return (
     <header className={s.header}>
       <NavLink to="/">
-        <img
-          src="/public/rent-car-logo.svg"
-          alt="RentalCar Logo"
-          className={s.logo}
-        />
+        <img src="/rent-car-logo.svg" alt="RentalCar Logo" className={s.logo} />
       </NavLink>
       <nav className={s.navHeader}>
         <NavLink

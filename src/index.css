@@ -1,4 +1,6 @@
 :root {
+  --background-banner-desktop: url('./assets/banner/Container.png');
+  --background-banner-desktop-2x: url('./assets/banner/Container-2x.png');
   --font-family: "Manrope", sans-serif;
   --second-family: "Inter", sans-serif;
   --main: #101828;
@@ -14,6 +16,7 @@
 
 
 #root {
+  font-family: var(--font-family);
   color: rgb(34, 34, 34);
   margin: 0;
   display: flex;
@@ -39,11 +42,9 @@ p {
   margin: 0;
 }
 
-
 a {
   text-decoration: none;
 }
-
 
 
 button {
