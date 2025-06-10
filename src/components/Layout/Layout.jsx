@@ -6,10 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div className="wrapper">
       <Header />
-      <Suspense fallback={null}>
-        {children}
-        <Outlet />
-      </Suspense>
+      <Suspense fallback={null}>{children}</Suspense>
     </div>
   );
 };

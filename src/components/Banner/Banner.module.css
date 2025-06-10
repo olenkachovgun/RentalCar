@@ -12,6 +12,14 @@
     align-items: center;
 }
 
+@media screen and (min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx) {
+    .bannerContainer {
+        background-image: var(--background-banner-desktop-2x);
+    }
+}
+
 .bannerTitle {
     font-weight: 700;
     font-size: 60px;

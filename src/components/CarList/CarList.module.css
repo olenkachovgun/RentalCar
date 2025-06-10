@@ -1,0 +1,7 @@
+.containerListCar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 32px;
+    width: 1200px;
+    margin: 0 auto;
+}
