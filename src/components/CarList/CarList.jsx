@@ -6,7 +6,8 @@ import { fetchCars } from "../../redux/cars/operations.js";
 import s from "./CarList.module.css";
 
 const CarList = () => {
-  const cars = useSelector(selectCars);
+  const { cars = [] } = useSelector(selectCars) || {};
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,9 +21,8 @@ const CarList = () => {
 
   return (
     <ul className={s.containerListCar}>
-      {cars.cars.map((item) => (
-        <CarItem key={item.id} {...item} />
-      ))}
+      {cars?.length > 0 &&
+        cars.map((item) => <CarItem key={item.id} {...item} />)}
     </ul>
   );
 };
