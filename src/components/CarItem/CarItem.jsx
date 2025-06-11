@@ -17,7 +17,8 @@ const CarItem = ({
   const addressParts = address ? address.split(", ") : [];
   const city = addressParts[addressParts.length - 2] || "";
   const country = addressParts[addressParts.length - 1] || "";
-  const mileageInKm = mileage ? mileage * 1.60934 : 0;
+  // const mileageInKm = mileage ? mileage * 1.60934 : 0;
+  const mileageInKm = mileage ? mileage : 0;
   const formattedMileage =
     mileageInKm !== 0
       ? Math.round(mileageInKm).toLocaleString("en-US").replace(/,/g, " ")
@@ -26,7 +27,7 @@ const CarItem = ({
   return (
     <li className={s.carCard}>
       <div className={s.itemImg}>
-        <img src={img} alt={`${brand} ${model} ${year}`} />
+        <img src={img} alt={`${brand} ${model} ${year}`} loading="lazy" />
       </div>
 
       <div className={s.itemInfo}>

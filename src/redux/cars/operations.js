@@ -7,10 +7,34 @@ export const api = axios.create({
 
 export const fetchCars = createAsyncThunk(
   "cars/fetchData",
-  async (page = 1, thunkAPI) => {
+  async (option = {}, thunkAPI) => {
+    const {
+      page = 1,
+      brand = null,
+      rentalPrice = null,
+      minMileage = null,
+      maxMileage = null,
+      signal,
+    } = option;
     try {
-      const { data } = await api.get(`/cars?page=${page}`);
-      console.log(data);
+      const params = new URLSearchParams();
+      params.append("page", page);
+      if (brand) {
+        params.append("brand", brand);
+      }
+      if (rentalPrice) {
+        params.append("rentalPrice", rentalPrice);
+      }
+      if (minMileage) {
+        params.append("minMileage", minMileage);
+      }
+      if (maxMileage) {
+        params.append("maxMileage", maxMileage);
+      }
+      const url = `/cars?${params.toString()}`;
+      console.log("Fetching URL:", url);
+      const { data } = await api.get(url, { signal });
+
       return data;
     } catch (error) {
       const message = error?.response?.data?.message || error.message;

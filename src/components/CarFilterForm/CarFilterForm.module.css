@@ -1,0 +1,12 @@
+.searchBtn {
+    border-radius: 12px;
+    padding: 12px 51px;
+    width: 156px;
+    height: 44px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--white);
+    background: var(--button);
+    border: none
+}
