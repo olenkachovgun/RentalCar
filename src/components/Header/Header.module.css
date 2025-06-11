@@ -2,7 +2,6 @@
     background-color: var(--badges);
     border-bottom: 1px solid var(--badges);
     padding: 24px 120px;
-
     max-width: 1440px;
     height: 68px;
     display: flex;

@@ -1,0 +1,23 @@
+.loadMoreBtn {
+    border: 1px solid var(--button);
+    border-radius: 12px;
+    padding: 12px 0;
+    text-align: center;
+    width: 156px;
+    height: 44px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--main);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:active,
+.loadMoreBtn:focus {
+    border: 1px solid var(--button-hover);
+}

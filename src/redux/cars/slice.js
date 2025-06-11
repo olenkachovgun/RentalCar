@@ -6,6 +6,12 @@ const initialState = {
   items: [],
   isLoading: false,
   isError: false,
+  pageInfo: {
+    totalCars: 0,
+    page: 0,
+    totalPages: 0,
+  },
+  favorites: [],
 };
 const handlePending = (state) => {
   state.isLoading = true;
@@ -22,9 +28,29 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCars.fulfilled, (state, action) => {
-        state.items = action.payload;
+        console.log(action.payload);
         state.isLoading = false;
         state.isError = false;
+
+        const {
+          cars,
+          totalCars,
+          page: currentPageString,
+          totalPages,
+        } = action.payload;
+        const currentPage = Number(currentPageString);
+
+        if (currentPage === 1) {
+          state.items = cars;
+        } else {
+          state.items = [...state.items, ...cars];
+        }
+
+        state.pageInfo = {
+          page: currentPage,
+          totalCars,
+          totalPages,
+        };
       })
       .addCase(fetchCars.pending, handlePending)
       .addCase(fetchCars.rejected, handleRejected);
