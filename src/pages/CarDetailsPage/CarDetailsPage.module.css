@@ -1,0 +1,15 @@
+.detailsPageContainer {
+    padding: 84px 120px;
+
+}
+
+.detailsContent {
+    display: flex;
+    gap: 72px;
+}
+
+.leftSection {}
+
+.rightSection {
+    padding-top: 10px;
+}

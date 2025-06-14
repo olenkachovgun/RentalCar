@@ -1,6 +1,11 @@
 import React from "react";
 import s from "./CarItem.module.css";
 import { NavLink } from "react-router-dom";
+import {
+  carTypeFormat,
+  formatMileage,
+  parseAddress,
+} from "../../utils/formatters.js";
 
 const CarItem = ({
   id,
@@ -14,15 +19,7 @@ const CarItem = ({
   type,
   mileage,
 }) => {
-  const addressParts = address ? address.split(", ") : [];
-  const city = addressParts[addressParts.length - 2] || "";
-  const country = addressParts[addressParts.length - 1] || "";
-  // const mileageInKm = mileage ? mileage * 1.60934 : 0;
-  const mileageInKm = mileage ? mileage : 0;
-  const formattedMileage =
-    mileageInKm !== 0
-      ? Math.round(mileageInKm).toLocaleString("en-US").replace(/,/g, " ")
-      : "N/A";
+  const { city, country } = parseAddress(address);
 
   return (
     <li className={s.carCard}>
@@ -43,8 +40,8 @@ const CarItem = ({
           <span>{rentalCompany}</span>
         </p>
         <p className={s.detailItem}>
-          <span>{type}</span>
-          <span>{formattedMileage} km</span>
+          <span>{carTypeFormat(type)}</span>
+          <span>{formatMileage(mileage)}</span>
         </p>
       </div>
       <NavLink to={`/catalog/${id}`} className={s.readMoreBtn}>
