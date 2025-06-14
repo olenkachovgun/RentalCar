@@ -7,3 +7,12 @@
     margin: 0 auto;
     margin-bottom: 80px;
 }
+
+.notFound {
+    text-align: center;
+    padding: 24px;
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 600;
+
+}

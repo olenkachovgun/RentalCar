@@ -32,7 +32,7 @@ export const fetchCars = createAsyncThunk(
         params.append("maxMileage", maxMileage);
       }
       const url = `/cars?${params.toString()}`;
-      console.log("Fetching URL:", url);
+
       const { data } = await api.get(url, { signal });
 
       return data;

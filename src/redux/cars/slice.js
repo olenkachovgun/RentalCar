@@ -1,17 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCars } from "./operations";
 
-// Початковий стан редюсера слайсу:
 const initialState = {
   items: [],
-  isLoading: false,
-  isError: false,
+  filters: {
+    brand: "",
+    rentalPrice: "",
+    minMileage: "",
+    maxMileage: "",
+  },
+
   pageInfo: {
     totalCars: 0,
     page: 0,
     totalPages: 0,
   },
   favorites: [],
+  isLoading: false,
+  isError: false,
 };
 const handlePending = (state) => {
   state.isLoading = true;
@@ -25,20 +31,39 @@ const handleRejected = (state, action) => {
 const slice = createSlice({
   name: "cars",
   initialState,
+
+  reducers: {
+    setFilters: (state, action) => {
+      state.filters = { ...state.filters, ...action.payload };
+    },
+    clearFilters: (state) => {
+      state.filters = {
+        brand: "",
+        rentalPrice: "",
+        minMileage: "",
+        maxMileage: "",
+      };
+      state.pageInfo.page = 1;
+      state.items = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCars.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
         state.isError = false;
-
         const {
           cars,
           totalCars,
           page: currentPageString,
           totalPages,
         } = action.payload;
+
         const currentPage = Number(currentPageString);
+        const parsedTotalCars = Number(totalCars);
+        const parsedTotalPages = Number(totalPages);
+
+        if (!action.payload || !Array.isArray(action.payload.cars)) return;
 
         if (currentPage === 1) {
           state.items = cars;
@@ -48,8 +73,8 @@ const slice = createSlice({
 
         state.pageInfo = {
           page: currentPage,
-          totalCars,
-          totalPages,
+          totalCars: parsedTotalCars,
+          totalPages: parsedTotalPages,
         };
       })
       .addCase(fetchCars.pending, handlePending)
@@ -57,4 +82,5 @@ const slice = createSlice({
   },
 });
 
+export const { setFilters, clearFilters } = slice.actions;
 export const carsReducer = slice.reducer;

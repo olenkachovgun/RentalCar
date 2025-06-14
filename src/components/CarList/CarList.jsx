@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CarItem from "../CarItem/CarItem.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,49 +6,50 @@ import {
   selectError,
   selectIsLoading,
   selectPagination,
+  selectFilters,
 } from "../../redux/cars/selectors.js";
 import { fetchCars } from "../../redux/cars/operations.js";
 import s from "./CarList.module.css";
 import LoadMore from "../LoadMore/LoadMore.jsx";
 import Loader from "../Loader/Loader.jsx";
+import { clearFilters } from "../../redux/cars/slice.js";
 
 const CarList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const pageInfo = useSelector(selectPagination);
   const cars = useSelector(selectCars) || [];
-  const currentPage = pageInfo.page || 1;
-
+  const currentFilters = useSelector(selectFilters);
   const dispatch = useDispatch();
+  const currentPage = Number(pageInfo.page) || 1;
 
   useEffect(() => {
-    if (cars.length === 0 && !isLoading && !error) {
-      const abortController = new AbortController();
-      dispatch(fetchCars(1, { signal: abortController.signal }));
-      return () => {
-        abortController.abort();
-      };
-    }
-  }, [dispatch, cars.length, isLoading, error]);
-
-  console.log("CarsList -", cars);
+    dispatch(fetchCars({ page: 1, ...currentFilters }));
+  }, [currentFilters, dispatch]);
 
   if (isLoading && cars.length === 0) {
     return <Loader />;
   }
+
   if (error) {
     return <p className={s.errorMessage}>Error: {error}</p>;
   }
+
   const handleLoadMore = () => {
-    dispatch(fetchCars(currentPage + 1));
+    const nextPage = currentPage + 1;
+    dispatch(fetchCars({ page: nextPage, ...currentFilters }));
   };
 
   return (
     <>
-      <ul className={s.containerListCar}>
-        {cars?.length > 0 &&
-          cars.map((item) => <CarItem key={item.id} {...item} />)}
-      </ul>
+      {cars.length === 0 && !isLoading && !error ? (
+        <p className={s.notFound}>No cars available</p>
+      ) : (
+        <ul className={s.containerListCar}>
+          {cars?.length > 0 &&
+            cars.map((item) => <CarItem key={item.id} {...item} />)}
+        </ul>
+      )}
       {currentPage < pageInfo.totalPages && (
         <LoadMore handleLoadMore={handleLoadMore} />
       )}
