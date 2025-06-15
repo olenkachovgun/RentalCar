@@ -39,6 +39,8 @@
     margin-bottom: 110px;
 }
 
+
+
 .titleInfo {
     font-family: var(--font-family);
     font-weight: 600;
@@ -49,7 +51,6 @@
 }
 
 .textInfo,
-
 .adressCar {
     font-weight: 500;
     font-size: 16px;
@@ -57,5 +58,30 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 16px;
+
+}
+
+@media (max-width: 768px) {
+
+    .rental,
+    .specifications {
+        margin-bottom: 30px;
+    }
+
+    .mainInfo {
+        margin-bottom: 22px;
+    }
+
+    .priceCar {
+        margin-bottom: 12px;
+    }
+
+    .mileageCar {
+        margin-left: 4px;
+    }
+
+    .titleInfo {
+        margin-bottom: 12px;
+    }
 
 }

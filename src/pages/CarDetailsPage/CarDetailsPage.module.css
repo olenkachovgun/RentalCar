@@ -1,15 +1,24 @@
 .detailsPageContainer {
     padding: 84px 120px;
-
 }
 
 .detailsContent {
     display: flex;
     gap: 72px;
-}
 
-.leftSection {}
+}
 
 .rightSection {
     padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .detailsPageContainer {
+        padding: 24px 60px;
+    }
+
+    .detailsContent {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
 }
