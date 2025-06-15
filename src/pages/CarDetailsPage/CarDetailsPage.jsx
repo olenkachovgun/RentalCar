@@ -50,8 +50,9 @@ const CarDetailsPage = () => {
           <CarImgSection img={car.img} altText={`${car.make} ${car.model}`} />
           <CarBookingForm car={car} />
 
-        <div className={s.rightSection}>
-          <CarInfoSection  />
+          <div className={s.rightSection}>
+            <CarInfoSection />
+          </div>
         </div>
       </div>
     </div>
