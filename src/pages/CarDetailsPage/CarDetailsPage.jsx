@@ -49,10 +49,9 @@ const CarDetailsPage = () => {
         <div className={s.leftSection}>
           <CarImgSection img={car.img} altText={`${car.make} ${car.model}`} />
           <CarBookingForm />
-
-          <div className={s.rightSection}>
-            <CarInfoSection car={car} />
-          </div>
+        </div>
+        <div className={s.rightSection}>
+          <CarInfoSection car={car} />
         </div>
       </div>
     </div>
