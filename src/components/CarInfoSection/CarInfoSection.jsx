@@ -8,6 +8,7 @@ import {
 
 const CarInfoSection = ({ car }) => {
   const { city, country } = parseAddress(car.address);
+
   return (
     <ul>
       <li className={s.mainInfo}>

@@ -48,10 +48,10 @@ const CarDetailsPage = () => {
       <div className={s.detailsContent}>
         <div className={s.leftSection}>
           <CarImgSection img={car.img} altText={`${car.make} ${car.model}`} />
-          <CarBookingForm car={car} />
+          <CarBookingForm />
 
           <div className={s.rightSection}>
-            <CarInfoSection />
+            <CarInfoSection car={car} />
           </div>
         </div>
       </div>
