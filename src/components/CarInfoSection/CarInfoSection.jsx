@@ -11,7 +11,7 @@ const CarInfoSection = ({ car }) => {
 
   return (
     <ul>
-      <li className={s.mainInfo}>
+      <li className={s.mainInfo} key={`${car.id} "mainInfo"`}>
         <h2 className={s.titleCar}>
           {`${car.brand} ${car.model}, ${car.year}`}
 
@@ -32,7 +32,7 @@ const CarInfoSection = ({ car }) => {
         <p className={s.priceCar}>{`$${car.rentalPrice}`}</p>
         <p className={s.descCar}>{car.description}</p>
       </li>
-      <li className={s.rental}>
+      <li className={s.rental} key={`${car.id} "rental"`}>
         <ul>
           <h3 className={s.titleInfo}>Rental Conditions:</h3>
           {car.rentalConditions.map((item) => (
@@ -45,7 +45,7 @@ const CarInfoSection = ({ car }) => {
           ))}
         </ul>
       </li>
-      <li className={s.specifications}>
+      <li className={s.specifications} key={`${car.id} "specifications"`}>
         <ul>
           <h3 className={s.titleInfo}>Car Specifications: </h3>
           <li className={s.textInfo}>
@@ -74,7 +74,7 @@ const CarInfoSection = ({ car }) => {
           </li>
         </ul>
       </li>
-      <li className={s.accessories}>
+      <li className={s.accessories} key={`${car.id} "accessories"`}>
         <ul>
           <h3 className={s.titleInfo}>Accessories and functionalities:</h3>
           {[...car.accessories, ...car.functionalities].map((item) => (
