@@ -1,5 +1,6 @@
 .catalogPageContainer {
     padding-bottom: 124px;
     padding-top: 84px;
+    box-sizing: border-box;
 
 }

@@ -12,19 +12,20 @@ const CarBookingForm = () => {
   const initialValues = {
     name: "",
     email: "",
-    bookingDate: null,
+    bookingDate: [null, null],
     comment: "",
   };
+
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required").trim().max(52),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required")
       .max(52),
-    bookingDate: Yup.date()
-      .nullable()
-      .min(new Date(), "Booking date cannot be in the past")
-      .optional(),
+    bookingDate: Yup.array()
+      .of(Yup.date().nullable())
+      .length(2)
+      .required("Please select a date range"),
     comment: Yup.string().optional().max(200),
   });
 
@@ -32,9 +33,9 @@ const CarBookingForm = () => {
     try {
       const formattedValues = {
         ...values,
-        bookingDate: values.bookingDate
-          ? values.bookingDate.toISOString()
-          : null,
+        bookingDate: values.bookingDate?.map((date) =>
+          date ? date.toISOString() : null
+        ),
       };
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -97,9 +98,11 @@ const CarBookingForm = () => {
 
             <div className={s.formField}>
               <DatePicker
-                selected={values.bookingDate}
-                onChange={(date) => {
-                  setFieldValue("bookingDate", date);
+                selectsRange
+                startDate={values.bookingDate?.[0] || null}
+                endDate={values.bookingDate?.[1] || null}
+                onChange={(range) => {
+                  setFieldValue("bookingDate", range);
                 }}
                 onBlur={() => setFieldTouched("bookingDate", true)}
                 dateFormat="dd/MM/yyyy"

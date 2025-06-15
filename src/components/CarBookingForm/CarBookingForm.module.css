@@ -146,7 +146,34 @@
     color: var(--inputs);
 }
 
+:global(.react-datepicker__day--in-range) {
+    background-color: var(--button);
+    color: var(--white);
+}
 
+:global(.react-datepicker__day--range-start),
+:global(.react-datepicker__day--range-end) {
+    background-color: var(--button);
+    border-radius: 32px;
+    color: var(--white);
+    font-weight: 600;
+}
+
+
+:global(.react-datepicker__day:hover),
+:global(.react-datepicker__day:focus),
+:global(.react-datepicker__day--in-range:hover),
+:global(.react-datepicker__day--in-range:focus),
+:global(.react-datepicker__day--range-start:hover),
+:global(.react-datepicker__day--range-end:hover) {
+    background-color: var(--button-hover) !important;
+    color: var(--white);
+    border-radius: 32px;
+}
+
+:global(.react-datepicker__close-icon::after) {
+    background-color: var(--button);
+}
 
 :global(span.react-datepicker__navigation-icon--next::before),
 :global(span.react-datepicker__navigation-icon::before) {

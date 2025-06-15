@@ -32,8 +32,6 @@ const CarDetailsPage = () => {
     fetchCar();
   }, [id]);
 
-  console.log("carDetails", car);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
