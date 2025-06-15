@@ -46,6 +46,23 @@ const slice = createSlice({
       state.pageInfo.page = 1;
       state.items = [];
     },
+
+    toggleFavorite: (state, action) => {
+      const carId = action.payload;
+      if (state.favorites.includes(carId)) {
+        state.favorites = state.favorites.filter((id) => id !== carId);
+      } else {
+        state.favorites.push(carId);
+      }
+      localStorage.setItem("favorites", JSON.stringify(state.favorites));
+    },
+
+    loadFavorites: (state) => {
+      const saved = localStorage.getItem("favorites");
+      if (saved) {
+        state.favorites = JSON.parse(saved);
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -82,5 +99,6 @@ const slice = createSlice({
   },
 });
 
-export const { setFilters, clearFilters } = slice.actions;
+export const { setFilters, clearFilters, toggleFavorite, loadFavorites } =
+  slice.actions;
 export const carsReducer = slice.reducer;

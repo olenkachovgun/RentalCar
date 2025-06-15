@@ -16,10 +16,10 @@ const CarBookingForm = () => {
     comment: "",
   };
   const validationSchema = Yup.object({
-    name: Yup.string().required("Required").trim().max(52),
+    name: Yup.string().required("Name is required").trim().max(52),
     email: Yup.string()
       .email("Invalid email address")
-      .required("Required")
+      .required("Email is required")
       .max(52),
     bookingDate: Yup.date()
       .nullable()

@@ -6,6 +6,9 @@ import {
   formatMileage,
   parseAddress,
 } from "../../utils/formatters.js";
+import { selectFavorites } from "../../redux/cars/selectors.js";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/cars/slice.js";
 
 const CarItem = ({
   id,
@@ -20,11 +23,31 @@ const CarItem = ({
   mileage,
 }) => {
   const { city, country } = parseAddress(address);
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites.includes(id);
+
+  const handleFavoriteClick = () => {
+    dispatch(toggleFavorite(id));
+  };
 
   return (
     <li className={s.carCard}>
       <div className={s.itemImg}>
         <img src={img} alt={`${brand} ${model} ${year}`} loading="lazy" />
+        <div className={s.favoriteIcon} onClick={handleFavoriteClick}>
+          <svg
+            className={isFavorite ? s.iconHeartFill : s.iconHeart}
+            width="16"
+            height="16"
+          >
+            <use
+              href={`/icons.svg#${
+                isFavorite ? "icon-heartFill" : "icon-heart"
+              }`}
+            ></use>
+          </svg>
+        </div>
       </div>
 
       <div className={s.itemInfo}>

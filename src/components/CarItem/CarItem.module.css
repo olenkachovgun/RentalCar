@@ -3,10 +3,12 @@
     height: 424px;
 }
 
+
 .itemImg {
     width: 276px;
     height: 268px;
     margin-bottom: 16px;
+    position: relative;
 }
 
 .itemImg img {
@@ -16,6 +18,36 @@
     object-fit: cover;
 
 }
+
+.favoriteIcon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.favoriteIcon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+
+}
+
+.iconHeart {
+    stroke: white;
+    fill: white;
+
+}
+
+.favoriteIcon:hover .iconHeart {
+    color: #255de3;
+}
+
+.iconHeartFill {
+
+    color: var(--button);
+}
+
 
 .itemInfo {
     display: flex;
@@ -52,6 +84,10 @@
     border-right: 1px solid var(--gray-light);
     display: inline-block;
     padding: 0 6px;
+}
+
+.detailItem span:last-child {
+    border-right: none;
 }
 
 .detailItem span:nth-child(1) {

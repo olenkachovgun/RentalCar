@@ -12,7 +12,7 @@ import { fetchCars } from "../../redux/cars/operations.js";
 import s from "./CarList.module.css";
 import LoadMore from "../LoadMore/LoadMore.jsx";
 import Loader from "../Loader/Loader.jsx";
-import { clearFilters } from "../../redux/cars/slice.js";
+import { clearFilters, loadFavorites } from "../../redux/cars/slice.js";
 
 const CarList = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -22,6 +22,10 @@ const CarList = () => {
   const currentFilters = useSelector(selectFilters);
   const dispatch = useDispatch();
   const currentPage = Number(pageInfo.page) || 1;
+
+  useEffect(() => {
+    dispatch(loadFavorites());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchCars({ page: 1, ...currentFilters }));
