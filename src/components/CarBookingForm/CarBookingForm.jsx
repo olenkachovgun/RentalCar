@@ -112,7 +112,6 @@ const CarBookingForm = () => {
                   nameOfDay.toUpperCase().slice(0, 3)
                 }
               />
-
               {errors.bookingDate && touched.bookingDate && (
                 <div className={s.errorText}>{errors.bookingDate}</div>
               )}
