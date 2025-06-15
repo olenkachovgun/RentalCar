@@ -9,8 +9,8 @@ import {
 const CarInfoSection = ({ car }) => {
   const { city, country } = parseAddress(car.address);
   return (
-    <div>
-      <div className={s.mainInfo}>
+    <ul>
+      <li className={s.mainInfo}>
         <h2 className={s.titleCar}>
           {`${car.brand} ${car.model}, ${car.year}`}
 
@@ -30,8 +30,8 @@ const CarInfoSection = ({ car }) => {
         </p>
         <p className={s.priceCar}>{`$${car.rentalPrice}`}</p>
         <p className={s.descCar}>{car.description}</p>
-      </div>
-      <div className={s.rental}>
+      </li>
+      <li className={s.rental}>
         <ul>
           <h3 className={s.titleInfo}>Rental Conditions:</h3>
           {car.rentalConditions.map((item) => (
@@ -43,35 +43,37 @@ const CarInfoSection = ({ car }) => {
             </li>
           ))}
         </ul>
-      </div>
-      <div className={s.specifications}>
-        <h3 className={s.titleInfo}>Car Specifications: </h3>
-        <div className={s.specificationsItem}>
-          <svg className={s.iconItem} width="16" height="16">
-            <use href={`/icons.svg#icon-calendar`}></use>
-          </svg>
-          Year: {car.year}
-        </div>
-        <div className={s.specificationsItem}>
-          <svg className={s.iconItem} width="16" height="16">
-            <use href={`/icons.svg#icon-car`}></use>
-          </svg>
-          Type: {carTypeFormat(car.type)}
-        </div>
-        <div className={s.specificationsItem}>
-          <svg className={s.iconItem} width="16" height="16">
-            <use href={`/icons.svg#icon-fuel`}></use>
-          </svg>
-          Fuel Consumption: {car.fuelConsumption}
-        </div>
-        <div className={s.specificationsItem}>
-          <svg className={s.iconItem} width="16" height="16">
-            <use href={`/icons.svg#icon-setting`}></use>
-          </svg>
-          Engine Size: {car.engineSize}
-        </div>
-      </div>
-      <div className={s.accessories}>
+      </li>
+      <li className={s.specifications}>
+        <ul>
+          <h3 className={s.titleInfo}>Car Specifications: </h3>
+          <li className={s.textInfo}>
+            <svg className={s.iconItem} width="16" height="16">
+              <use href={`/icons.svg#icon-calendar`}></use>
+            </svg>
+            Year: {car.year}
+          </li>
+          <li className={s.textInfo}>
+            <svg className={s.iconItem} width="16" height="16">
+              <use href={`/icons.svg#icon-car`}></use>
+            </svg>
+            Type: {carTypeFormat(car.type)}
+          </li>
+          <li className={s.textInfo}>
+            <svg className={s.iconItem} width="16" height="16">
+              <use href={`/icons.svg#icon-fuel`}></use>
+            </svg>
+            Fuel Consumption: {car.fuelConsumption}
+          </li>
+          <li className={s.textInfo}>
+            <svg className={s.iconItem} width="16" height="16">
+              <use href={`/icons.svg#icon-setting`}></use>
+            </svg>
+            Engine Size: {car.engineSize}
+          </li>
+        </ul>
+      </li>
+      <li className={s.accessories}>
         <ul>
           <h3 className={s.titleInfo}>Accessories and functionalities:</h3>
           {[...car.accessories, ...car.functionalities].map((item) => (
@@ -83,8 +85,8 @@ const CarInfoSection = ({ car }) => {
             </li>
           ))}
         </ul>
-      </div>
-    </div>
+      </li>
+    </ul>
   );
 };
 

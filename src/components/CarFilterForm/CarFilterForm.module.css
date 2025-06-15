@@ -11,6 +11,12 @@
     border: none
 }
 
+.searchBtn:hover,
+.searchBtn:focus,
+.searchBtn:active {
+    background: var(--button-hover);
+}
+
 .filterForm {
     flex-wrap: wrap;
     display: flex;
