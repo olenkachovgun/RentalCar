@@ -3,11 +3,10 @@
     font-size: 16px;
     line-height: 125%;
     color: var(--main);
-
+    margin-bottom: 67px;
 }
 
 .titleCar {
-
     font-weight: 600;
     font-size: 24px;
     line-height: 133%;
@@ -24,9 +23,6 @@
 }
 
 .adressCar {
-
-
-
     margin-bottom: 16px;
 }
 
@@ -42,4 +38,28 @@
     margin-bottom: 32px;
 }
 
-.descCar {}
+.rental,
+.specifications {
+    margin-bottom: 110px;
+}
+
+.titleInfo {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--main);
+    margin-bottom: 20px;
+}
+
+.textInfo,
+.specificationsItem,
+.adressCar {
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+
+}
