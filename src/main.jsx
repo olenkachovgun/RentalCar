@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import "modern-normalize";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
-import { store } from "./store.js";
+import { store } from "./redux/store.js";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./redux/store.js";
