@@ -19,6 +19,11 @@
 
 }
 
+.btnfavorite {
+    background-color: transparent;
+    border: none
+}
+
 .favoriteIcon {
     position: absolute;
     top: 16px;

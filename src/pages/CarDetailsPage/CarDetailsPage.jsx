@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-// import { fetchCarId } from "../../redux/cars/operations.js";
 import { useParams } from "react-router-dom";
 import s from "./CarDetailsPage.module.css";
 import CarImgSection from "../../components/CarImgSection/CarImgSection.jsx";
 import CarBookingForm from "../../components/CarBookingForm/CarBookingForm.jsx";
-import {
-  selectCars,
-  selectError,
-  selectIsLoading,
-} from "../../redux/cars/selectors.js";
+import { selectError, selectIsLoading } from "../../redux/cars/selectors.js";
 import CarInfoSection from "../../components/CarInfoSection/CarInfoSection.jsx";
 import { api } from "../../redux/cars/operations.js";
 

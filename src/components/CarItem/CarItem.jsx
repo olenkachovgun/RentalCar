@@ -36,17 +36,19 @@ const CarItem = ({
       <div className={s.itemImg}>
         <img src={img} alt={`${brand} ${model} ${year}`} loading="lazy" />
         <div className={s.favoriteIcon} onClick={handleFavoriteClick}>
-          <svg
-            className={isFavorite ? s.iconHeartFill : s.iconHeart}
-            width="16"
-            height="16"
-          >
-            <use
-              href={`/icons.svg#${
-                isFavorite ? "icon-heartFill" : "icon-heart"
-              }`}
-            ></use>
-          </svg>
+          <button type="button" className={s.btnfavorite}>
+            <svg
+              className={isFavorite ? s.iconHeartFill : s.iconHeart}
+              width="16"
+              height="16"
+            >
+              <use
+                href={`/icons.svg#${
+                  isFavorite ? "icon-heartFill" : "icon-heart"
+                }`}
+              ></use>
+            </svg>
+          </button>
         </div>
       </div>
 
