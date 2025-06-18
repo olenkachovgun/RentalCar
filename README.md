@@ -1,64 +1,66 @@
 # React + Vite: RentalCar🚘 Frontend
 
-## Загальна інформація
+## General Information
+This project is the frontend part of the "RentalCar" web application, designed for car rentals. It's built to interact with the backend API, available at: [https://car-rental-api.goit.global/api-docs/](https://car-rental-api.goit.global/api-docs/).
+The main goal of this project is to provide users with a convenient interface for viewing available cars, filtering them, adding them to favorites, and making reservations.
 
-Цей проєкт є фронтенд частиною веб-додатку "RentalCar", призначеного для оренди автомобілів. Він розроблений для взаємодії з бекенд API, доступним за посиланням: [https://car-rental-api.goit.global/api-docs/](https://car-rental-api.goit.global/api-docs/).
+---
+## Key Features
 
-Основна мета проєкту – надати користувачам зручний інтерфейс для перегляду доступних автомобілів, їх фільтрації, додавання до обраних та бронювання.
+-   **Car Catalog View**: Displays a list of all available vehicles.
+-   **Filtering**: Users can filter cars by brand, price, and mileage range. Filtering is performed on the backend.
+-   **Add to Favorites**: Users can add and remove cars from their favorites list. The favorites list is stored locally in the user's browser and persists upon page refresh.
+-   **Detailed Car Description**: View detailed information about each car on a separate page.
+-   **Booking Form**: Ability to fill out a form to rent a selected car.
+-   **Pagination**: Dynamic loading of additional car cards when clicking the "Load More" button, considering applied filters.
+-   **Mileage Formatting**: Car mileage is displayed in a user-friendly format (e.g., "5 000 km").
+    
+---
+## Technologies and Libraries
 
-## Основні функції
+-   **Framework**: React (with Vite bundler)
+-   **State Management**: Redux Toolkit
+-   **Routing**: React Router
+-   **HTTP Requests**: Axios
+-   **Styling**: CSS Modules
+-   **Form Validation**: Formik, Yup
+-   **DatePicker**: react-datepicker
 
-- **Перегляд каталогу автомобілів**: Відображення списку всіх доступних транспортних засобів.
-- **Фільтрація**: Можливість фільтрувати автомобілі за брендом, ціною та діапазоном пробігу. Фільтрація здійснюється на стороні бекенду.
-- **Додавання до обраних**: Користувачі можуть додавати та видаляти автомобілі зі списку обраних. Список обраних зберігається локально у браузері користувача та зберігається при оновленні сторінки.
-- **Детальний опис автомобіля**: Перегляд детальної інформації про кожен автомобіль на окремій сторінці.
-- **Форма бронювання**: Можливість заповнити форму для оренди обраного автомобіля.
-- **Пагінація**: Динамічне довантаження додаткових карток автомобілів при натисканні на кнопку "Load More", з урахуванням застосованих фільтрів.
-- **Форматування пробігу**: Пробіг автомобіля відображається у зручному форматі (наприклад, "5 000 km").
+---
+## Route Structure
 
-## Технології та бібліотеки
+-   `/` - Home page with a banner and call to action.
+-   `/catalog` - Catalog page with filtering and a list of cars.
+-   `/catalog/:id` - Page with a detailed description of a specific car and a booking form.
 
-- **Фреймворк**: React (з бандлером Vite)
-- **Управління станом**: Redux Toolkit
-- **Маршрутизація**: React Router
-- **HTTP-запити**: Axios
-- **Стилізація**: CSS Modules
-- **Валідація форм**: Formik, Yup
-- **DatePicker**: react-datepicker
+---
+## Installation
 
-## Структура маршрутів
+To run the project locally, follow these steps:
 
-- `/` - Домашня сторінка з банером та закликом до дії.
-- `/catalog` - Сторінка каталогу з фільтрацією та списком автомобілів.
-- `/catalog/:id` - Сторінка з детальним описом конкретного автомобіля та формою бронювання.
-
-  ## Інсталяція
-Щоб запустити проєкт локально, виконайте наступні кроки:
-
-1.  **Клонуйте репозиторій**:
+1.  **Clone the repository**:
     ```bash
     git clone git@github.com:olenkachovgun/RentalCar.git
     ```
-  
-2.  **Перейдіть до каталогу проєкту**:
+2.  **Navigate to the project directory**:
     ```bash
-    cd rentalcar-frontend # Або назва вашої папки з проєктом
+    cd rentalcar-frontend # Or the name of your project folder
     ```
-3.  **Встановіть залежності**:
+3.  **Install dependencies**:
     ```bash
     npm install
-    # або
+    # or
     yarn install
-    ``
-4.  **Запустіть проєкт**:
+    ```
+4.  **Start the project**:
     ```bash
     npm run dev
-    # або
+    # or
     yarn dev
     ```
+After completing these steps, the application will be available in your browser at the address provided by Vite (usually `http://localhost:5173/`).
 
-Після виконання цих кроків, додаток буде доступний у вашому браузері за адресою, яку вкаже Vite (зазвичай `http://localhost:5173/`).
-----
-## Автор 👩🏻‍💼
+---
+## Author 👩🏻‍💼
 
-**Олена Човгун**
+**Olena Chovgun**
